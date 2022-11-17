@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="couponReward">
+      <h2 data-cy="couponRewardDetailsHeading"><span>Coupon Reward</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ couponReward.id }}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+          <span>{{ couponReward.description }}</span>
+        </dd>
+        <dt><span>Location</span></dt>
+        <dd>
+          <span>{{ couponReward.location }}</span>
+        </dd>
+        <dt><span>Tix</span></dt>
+        <dd>
+          <span>{{ couponReward.tix }}</span>
+        </dd>
+        <dt><span>Comp</span></dt>
+        <dd>
+          <span>{{ couponReward.comp }}</span>
+        </dd>
+        <dt><span>Expiry</span></dt>
+        <dd>
+          <span>{{ couponReward.expiry | formatMediumDate }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/coupon-reward', couponReward.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

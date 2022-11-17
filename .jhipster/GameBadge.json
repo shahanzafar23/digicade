@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094547",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "game_badge",
+  "fields": [
+    {
+      "fieldName": "logoUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "GameBadge",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "game",
+      "otherEntityRelationshipName": "gameBadge",
+      "relationshipName": "game",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "gameBadge",
+      "relationshipName": "player",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

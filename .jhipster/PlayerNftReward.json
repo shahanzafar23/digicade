@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094558",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "player_nft_reward",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PlayerNftReward",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "playerNftReward",
+      "relationshipName": "player",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "nftReward",
+      "otherEntityRelationshipName": "playerNftReward",
+      "relationshipName": "nftReward",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

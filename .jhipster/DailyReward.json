@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094559",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "daily_reward",
+  "fields": [
+    {
+      "fieldName": "time",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rewardType",
+      "fieldType": "RewardType",
+      "fieldValues": "TIX,COMP,CREDITS,NFT,COUPON"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "DailyReward",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "couponReward",
+      "otherEntityRelationshipName": "dailyReward",
+      "relationshipName": "couponReward",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "nftReward",
+      "otherEntityRelationshipName": "dailyReward",
+      "relationshipName": "nftReward",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

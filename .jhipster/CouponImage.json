@@ -1,0 +1,27 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094555",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "coupon_image",
+  "fields": [
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CouponImage",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "couponReward",
+      "otherEntityRelationshipName": "couponImage",
+      "relationshipName": "couponReward",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

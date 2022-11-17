@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094552",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "coin_package",
+  "fields": [
+    {
+      "fieldName": "coins",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "cost",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CoinPackage",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "coinPackage",
+      "relationshipName": "transaction",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

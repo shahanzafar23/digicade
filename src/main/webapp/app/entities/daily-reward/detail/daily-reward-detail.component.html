@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="dailyReward">
+      <h2 data-cy="dailyRewardDetailsHeading"><span>Daily Reward</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ dailyReward.id }}</span>
+        </dd>
+        <dt><span>Time</span></dt>
+        <dd>
+          <span>{{ dailyReward.time }}</span>
+        </dd>
+        <dt><span>Reward Type</span></dt>
+        <dd>
+          <span>{{ dailyReward.rewardType }}</span>
+        </dd>
+        <dt><span>Amount</span></dt>
+        <dd>
+          <span>{{ dailyReward.amount }}</span>
+        </dd>
+        <dt><span>Coupon Reward</span></dt>
+        <dd>
+          <div *ngIf="dailyReward.couponReward">
+            <a [routerLink]="['/coupon-reward', dailyReward.couponReward.id, 'view']">{{ dailyReward.couponReward.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Nft Reward</span></dt>
+        <dd>
+          <div *ngIf="dailyReward.nftReward">
+            <a [routerLink]="['/nft-reward', dailyReward.nftReward.id, 'view']">{{ dailyReward.nftReward.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/daily-reward', dailyReward.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="highScore">
+      <h2 data-cy="highScoreDetailsHeading"><span>High Score</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ highScore.id }}</span>
+        </dd>
+        <dt><span>Highest Score</span></dt>
+        <dd>
+          <span>{{ highScore.highestScore }}</span>
+        </dd>
+        <dt><span>Game</span></dt>
+        <dd>
+          <div *ngIf="highScore.game">
+            <a [routerLink]="['/game', highScore.game.id, 'view']">{{ highScore.game.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Player</span></dt>
+        <dd>
+          <div *ngIf="highScore.player">
+            <a [routerLink]="['/player', highScore.player.id, 'view']">{{ highScore.player.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/high-score', highScore.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="player">
+      <h2 data-cy="playerDetailsHeading"><span>Player</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ player.id }}</span>
+        </dd>
+        <dt><span>Game Play Credits</span></dt>
+        <dd>
+          <span>{{ player.gamePlayCredits }}</span>
+        </dd>
+        <dt><span>Tix</span></dt>
+        <dd>
+          <span>{{ player.tix }}</span>
+        </dd>
+        <dt><span>Comp</span></dt>
+        <dd>
+          <span>{{ player.comp }}</span>
+        </dd>
+        <dt><span>Level</span></dt>
+        <dd>
+          <span>{{ player.level }}</span>
+        </dd>
+        <dt><span>Wallet Address</span></dt>
+        <dd>
+          <span>{{ player.walletAddress }}</span>
+        </dd>
+        <dt><span>Digi User</span></dt>
+        <dd>
+          <div *ngIf="player.digiUser">
+            <a [routerLink]="['/digi-user', player.digiUser.id, 'view']">{{ player.digiUser.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/player', player.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

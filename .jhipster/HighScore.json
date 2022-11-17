@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094551",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "high_score",
+  "fields": [
+    {
+      "fieldName": "highestScore",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "HighScore",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "game",
+      "otherEntityRelationshipName": "highScore",
+      "relationshipName": "game",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "highScore",
+      "relationshipName": "player",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

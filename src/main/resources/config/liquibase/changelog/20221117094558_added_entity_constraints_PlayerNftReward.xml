@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity PlayerNftReward.
+    -->
+    <changeSet id="20221117094558-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="player_id"
+                                 baseTableName="player_nft_reward"
+                                 constraintName="fk_player_nft_reward__player_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="player"/>
+
+        <addForeignKeyConstraint baseColumnNames="nft_reward_id"
+                                 baseTableName="player_nft_reward"
+                                 constraintName="fk_player_nft_reward__nft_reward_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nft_reward"/>
+    </changeSet>
+</databaseChangeLog>

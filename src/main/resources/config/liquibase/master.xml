@@ -17,7 +17,32 @@
     <property name="datetimeType" value="datetime" dbms="postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094545_added_entity_DigiUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094546_added_entity_Player.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094547_added_entity_GameBadge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094548_added_entity_GameLevel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094549_added_entity_Game.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094550_added_entity_GameScore.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094551_added_entity_HighScore.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094552_added_entity_CoinPackage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094553_added_entity_Transaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094554_added_entity_CouponReward.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094555_added_entity_CouponImage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094556_added_entity_PlayerCouponReward.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094557_added_entity_NftReward.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094558_added_entity_PlayerNftReward.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094559_added_entity_DailyReward.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20221117094546_added_entity_constraints_Player.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094547_added_entity_constraints_GameBadge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094548_added_entity_constraints_GameLevel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094550_added_entity_constraints_GameScore.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094551_added_entity_constraints_HighScore.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094553_added_entity_constraints_Transaction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094555_added_entity_constraints_CouponImage.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094556_added_entity_constraints_PlayerCouponReward.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094558_added_entity_constraints_PlayerNftReward.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20221117094559_added_entity_constraints_DailyReward.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

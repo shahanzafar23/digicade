@@ -1,0 +1,33 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094553",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "transaction",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Transaction",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "player",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "coinPackage",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "coinPackage",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

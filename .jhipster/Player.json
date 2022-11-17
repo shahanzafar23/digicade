@@ -1,0 +1,82 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094546",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "player",
+  "fields": [
+    {
+      "fieldName": "gamePlayCredits",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "tix",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "comp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "level",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "walletAddress",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Player",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "id": true,
+      "otherEntityName": "digiUser",
+      "otherEntityRelationshipName": "player",
+      "ownerSide": true,
+      "relationshipName": "digiUser",
+      "relationshipType": "one-to-one",
+      "useJPADerivedIdentifier": true
+    },
+    {
+      "otherEntityName": "gameScore",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "gameScore",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "highScore",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "highScore",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "gameBadge",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "gameBadge",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "transaction",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "playerCouponReward",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "playerCouponReward",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "playerNftReward",
+      "otherEntityRelationshipName": "player",
+      "relationshipName": "playerNftReward",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

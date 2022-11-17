@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094556",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "player_coupon_reward",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "CouponStatus",
+      "fieldValues": "REDEEMED,REFUNDED"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "PlayerCouponReward",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "player",
+      "otherEntityRelationshipName": "playerCouponReward",
+      "relationshipName": "player",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "couponReward",
+      "otherEntityRelationshipName": "playerCouponReward",
+      "relationshipName": "couponReward",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

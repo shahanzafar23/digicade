@@ -1,0 +1,41 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094557",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "nft_reward",
+  "fields": [
+    {
+      "fieldName": "tix",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "comp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "NftReward",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "playerNftReward",
+      "otherEntityRelationshipName": "nftReward",
+      "relationshipName": "playerNftReward",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dailyReward",
+      "otherEntityRelationshipName": "nftReward",
+      "relationshipName": "dailyReward",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

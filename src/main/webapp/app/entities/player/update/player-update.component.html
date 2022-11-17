@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-player-heading" data-cy="PlayerCreateUpdateHeading">Create or edit a Player</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_gamePlayCredits">Game Play Credits</label>
+          <input
+            type="number"
+            class="form-control"
+            name="gamePlayCredits"
+            id="field_gamePlayCredits"
+            data-cy="gamePlayCredits"
+            formControlName="gamePlayCredits"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_tix">Tix</label>
+          <input type="number" class="form-control" name="tix" id="field_tix" data-cy="tix" formControlName="tix" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_comp">Comp</label>
+          <input type="number" class="form-control" name="comp" id="field_comp" data-cy="comp" formControlName="comp" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_level">Level</label>
+          <input type="number" class="form-control" name="level" id="field_level" data-cy="level" formControlName="level" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_walletAddress">Wallet Address</label>
+          <input
+            type="text"
+            class="form-control"
+            name="walletAddress"
+            id="field_walletAddress"
+            data-cy="walletAddress"
+            formControlName="walletAddress"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" for="field_digiUser">Digi User</label>
+          <select
+            class="form-control"
+            id="field_digiUser"
+            data-cy="digiUser"
+            name="digiUser"
+            formControlName="digiUser"
+            [compareWith]="compareDigiUser"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="digiUserOption" *ngFor="let digiUserOption of digiUsersCollection">{{ digiUserOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

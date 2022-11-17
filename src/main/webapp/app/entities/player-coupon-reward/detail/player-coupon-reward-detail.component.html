@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="playerCouponReward">
+      <h2 data-cy="playerCouponRewardDetailsHeading"><span>Player Coupon Reward</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ playerCouponReward.id }}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+          <span>{{ playerCouponReward.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Status</span></dt>
+        <dd>
+          <span>{{ playerCouponReward.status }}</span>
+        </dd>
+        <dt><span>Player</span></dt>
+        <dd>
+          <div *ngIf="playerCouponReward.player">
+            <a [routerLink]="['/player', playerCouponReward.player.id, 'view']">{{ playerCouponReward.player.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Coupon Reward</span></dt>
+        <dd>
+          <div *ngIf="playerCouponReward.couponReward">
+            <a [routerLink]="['/coupon-reward', playerCouponReward.couponReward.id, 'view']">{{ playerCouponReward.couponReward.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/player-coupon-reward', playerCouponReward.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

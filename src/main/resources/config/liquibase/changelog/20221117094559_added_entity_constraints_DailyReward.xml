@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity DailyReward.
+    -->
+    <changeSet id="20221117094559-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="coupon_reward_id"
+                                 baseTableName="daily_reward"
+                                 constraintName="fk_daily_reward__coupon_reward_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="coupon_reward"/>
+
+        <addForeignKeyConstraint baseColumnNames="nft_reward_id"
+                                 baseTableName="daily_reward"
+                                 constraintName="fk_daily_reward__nft_reward_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nft_reward"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="playerNftReward">
+      <h2 data-cy="playerNftRewardDetailsHeading"><span>Player Nft Reward</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ playerNftReward.id }}</span>
+        </dd>
+        <dt><span>Date</span></dt>
+        <dd>
+          <span>{{ playerNftReward.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Player</span></dt>
+        <dd>
+          <div *ngIf="playerNftReward.player">
+            <a [routerLink]="['/player', playerNftReward.player.id, 'view']">{{ playerNftReward.player.id }}</a>
+          </div>
+        </dd>
+        <dt><span>Nft Reward</span></dt>
+        <dd>
+          <div *ngIf="playerNftReward.nftReward">
+            <a [routerLink]="['/nft-reward', playerNftReward.nftReward.id, 'view']">{{ playerNftReward.nftReward.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/player-nft-reward', playerNftReward.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

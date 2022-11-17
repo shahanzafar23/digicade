@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20221117094554",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "coupon_reward",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tix",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "comp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "expiry",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CouponReward",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "couponImage",
+      "otherEntityRelationshipName": "couponReward",
+      "relationshipName": "couponImage",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "playerCouponReward",
+      "otherEntityRelationshipName": "couponReward",
+      "relationshipName": "playerCouponReward",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dailyReward",
+      "otherEntityRelationshipName": "couponReward",
+      "relationshipName": "dailyReward",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
