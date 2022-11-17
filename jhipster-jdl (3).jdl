@@ -1,0 +1,125 @@
+entity DigiUser {
+	firstName String
+    lastName String
+    userName String
+    email String 
+    dob LocalDate
+    age Integer
+    promoCode String
+}
+
+entity Player {
+	gamePlayCredits Integer
+    tix Integer
+    comp Integer
+    level Integer
+    walletAddress String
+}
+
+entity GameBadge {
+	logoUrl String
+}
+
+entity GameLevel {
+	level Integer
+    score Integer
+}
+
+entity Game {
+	url String
+    logoUrl String
+}
+
+entity GameScore {
+    score Integer
+    date LocalDate
+}
+
+entity HighScore {
+    highestScore Integer
+}
+
+entity CoinPackage {
+	coins Integer
+    cost Double
+}
+
+entity Transaction {
+    date LocalDate
+}
+
+entity CouponReward {
+	description String
+    location String
+    tix Integer
+    comp Integer
+    expiry LocalDate
+}
+
+entity CouponImage {
+	imageUrl String
+}
+
+entity PlayerCouponReward {
+	date LocalDate
+    status CouponStatus
+}
+
+enum CouponStatus {
+	REDEEMED
+    REFUNDED
+}
+
+entity NftReward {
+	tix Integer
+    comp Integer
+    imageUrl String
+}
+
+entity PlayerNftReward {
+	date LocalDate
+}
+
+entity DailyReward {
+	time String
+    rewardType RewardType
+    amount Double
+}
+
+enum RewardType {
+	TIX
+    COMP
+    CREDITS
+    NFT
+    COUPON
+}
+
+relationship OneToMany{
+    Game to GameScore
+    Player to GameScore
+    Game to HighScore
+    Player to HighScore
+    Game to GameBadge
+    Player to GameBadge
+    Game to GameLevel
+    Player to Transaction
+    CoinPackage to Transaction
+    CouponReward to CouponImage
+    Player to PlayerCouponReward
+    CouponReward to PlayerCouponReward
+    Player to PlayerNftReward
+    NftReward to PlayerNftReward
+    CouponReward to DailyReward
+    NftReward to DailyReward
+}
+
+relationship OneToOne {
+	Player to DigiUser with jpaDerivedIdentifier
+}
+
+// Set pagination options
+paginate * with pagination
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+// Set service options to all except few
+service all with serviceImpl
