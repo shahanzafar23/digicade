@@ -40,7 +40,11 @@
           </label>
         </div>
 
-        <button type="submit" class="btn btn-primary" data-cy="submit">Sign in</button>
+        <div class="d-flex align-items-center">
+          <button type="submit" class="btn btn-primary mx-2" data-cy="submit">Sign in</button>
+          <asl-google-signin-button></asl-google-signin-button>
+          <button (click)="signInWithFB()">Sign in with FB</button>
+        </div>
       </form>
       <div class="mt-3 alert alert-warning">
         <a class="alert-link" routerLink="/account/reset/request" data-cy="forgetYourPasswordSelector">Did you forget your password?</a>

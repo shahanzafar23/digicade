@@ -72,6 +72,7 @@
     "packaging": "jar"
   },
   "dependencies": {
+    "@abacritt/angularx-social-login": "^1.2.5",
     "@angular/common": "14.2.0",
     "@angular/compiler": "14.2.0",
     "@angular/core": "14.2.0",

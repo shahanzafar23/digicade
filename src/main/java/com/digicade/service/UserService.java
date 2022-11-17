@@ -67,6 +67,10 @@ public class UserService {
             });
     }
 
+    public Optional<User> findUserByEmail(String email) {
+        return userRepository.findOneByLogin(email);
+    }
+
     public Optional<User> completePasswordReset(String newPassword, String key) {
         log.debug("Reset user password for reset key {}", key);
         return userRepository
