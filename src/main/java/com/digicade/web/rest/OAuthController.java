@@ -11,6 +11,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -34,6 +36,9 @@ public class OAuthController {
 
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     public OAuthController(
         UserService userService,
         UserRepository userRepository,
@@ -47,17 +52,20 @@ public class OAuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> oauthRegister(@Valid @RequestBody AdminUserDTO userDTO) {
+    public User oauthRegister(@Valid @RequestBody AdminUserDTO userDTO) {
         log.debug("REST request to save User : {}", userDTO);
         User user = userService.createUser(userDTO);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return user;
     }
 
     @GetMapping("/login/{email}")
-    public ResponseEntity<User> oAuthLoginUser(@PathVariable("email") String email) {
+    public User oAuthLoginUser(@PathVariable("email") String email) {
         log.debug("REST request to login User : {}", email);
         Optional<User> optional = userService.findUserByEmail(email);
-        return new ResponseEntity<>(optional.get(), HttpStatus.OK);
+        if (!optional.isPresent()) {
+            return null;
+        }
+        return optional.get();
     }
 
     @PostMapping("/authenticate")

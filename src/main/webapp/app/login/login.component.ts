@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.authService.authState.subscribe(user => {
       this.user = user;
       this.loggedIn = user != null;
+      console.log('ONINIT');
       if (this.loggedIn) {
         this.loginWithOAuth();
       }
@@ -80,38 +81,64 @@ export class LoginComponent implements OnInit, AfterViewInit {
       email: this.user['email'],
       activated: true,
       imageUrl: this.user['photoUrl'],
+      authorities: ['ROLE_USER'],
       password: '',
       login: this.user['email'],
       token: this.user['idToken'],
+      provider: this.user['provider'],
     };
 
+    this.http.get(this.applicationConfigService.getEndpointFor('oauth/login') + '/' + this.user['email']).subscribe({
+      next: (credential: any) => {
+        if (credential !== null) {
+          let loginPassword = '';
+          if (credential.provider === 'GOOGLE') {
+            loginPassword = 'GOOGLE';
+          } else if (credential.provider === 'GOOGLE') {
+            loginPassword = 'FACEBOOK';
+          }
+          this.loginService.login({ username: this.user['email'], password: loginPassword, rememberMe: false }).subscribe({
+            next: () => {
+              this.authenticationError = false;
+              if (!this.router.getCurrentNavigation()) {
+                // There were no routing during login (eg from navigationToStoredUrl)
+                this.router.navigate(['']);
+              }
+            },
+            error: () => (this.authenticationError = true),
+          });
+        } else {
+          this.registerUser(user);
+        }
+      },
+      error: () => {},
+    });
+  }
+
+  registerUser(user: any): void {
     this.http.post(this.applicationConfigService.getEndpointFor('oauth/register'), user).subscribe({
-      next: user => {
-        console.log('User Created', user);
+      next: (credential: any) => {
+        let loginPassword = '';
+        if (user.provider === 'GOOGLE') {
+          loginPassword = 'GOOGLE';
+        } else if (user.provider === 'GOOGLE') {
+          loginPassword = 'FACEBOOK';
+        }
+        this.loginService.login({ username: credential.email, password: loginPassword, rememberMe: false }).subscribe({
+          next: () => {
+            this.authenticationError = false;
+            if (!this.router.getCurrentNavigation()) {
+              // There were no routing during login (eg from navigationToStoredUrl)
+              this.router.navigate(['']);
+            }
+          },
+          error: () => (this.authenticationError = true),
+        });
       },
       error: () => {
         console.log('User not registered');
       },
     });
-
-    // this.http.get(this.applicationConfigService.getEndpointFor('oauth/login/'), this.user['email'])
-    //   .subscribe({
-    //     next: (user) => {
-    //       console.log("User", user);
-    //     },
-    //     error: () => {
-    //       console.log("User not found");
-    //     }
-    //   })
-
-    // this.loginService.loginWithOAuth(credentia).subscribe({
-    //   next: () => {
-    //     console.log("User created");
-    //   },
-    //   error: () => {
-    //     console.log("Error.............");
-    //   }
-    // })
   }
 
   signInWithGoogle(): void {
@@ -120,6 +147,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   signInWithFB(): void {
+    console.log('Login with google');
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 

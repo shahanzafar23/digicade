@@ -154,6 +154,11 @@ public class UserService {
         user.setLogin(userDTO.getLogin().toLowerCase());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
+        if (userDTO.getProvider() != null) {
+            user.setProvider(userDTO.getProvider());
+        } else {
+            user.setProvider("LOCAL");
+        }
         if (userDTO.getEmail() != null) {
             user.setEmail(userDTO.getEmail().toLowerCase());
         }
@@ -163,7 +168,16 @@ public class UserService {
         } else {
             user.setLangKey(userDTO.getLangKey());
         }
-        String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
+
+        String encryptedPassword = null;
+        if (userDTO.getProvider().equals("LOCAL")) {
+            encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
+        } else if (userDTO.getProvider().equals("GOOGLE")) {
+            encryptedPassword = passwordEncoder.encode("GOOGLE");
+        } else if (userDTO.getProvider().equals("FACEBOOK")) {
+            encryptedPassword = passwordEncoder.encode("FACEBOOK");
+        }
+
         user.setPassword(encryptedPassword);
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(Instant.now());

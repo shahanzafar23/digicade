@@ -9,6 +9,7 @@
     <!--
         Added the entity DigiUser.
     -->
+
     <changeSet id="20221117094545-1" author="jhipster">
         <createTable tableName="digi_user">
             <column name="id" type="bigint">
