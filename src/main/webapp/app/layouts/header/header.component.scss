@@ -1,0 +1,27 @@
+.Header {
+  .h-100 {
+    height: 100%;
+  }
+  .w-100 {
+    width: 100%;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .header-text-style {
+    font-family: 'square721M';
+  }
+  .single-line {
+    border-left: 2px solid white;
+    width: 0px;
+    height: 30px;
+  }
+  .font-22 {
+    cursor: pointer;
+    font-family: 'square721M';
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 0 13px #2dd4ff;
+  }
+}

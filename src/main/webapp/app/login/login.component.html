@@ -1,58 +1,591 @@
-<div>
-  <div class="d-flex justify-content-center">
-    <div class="col-lg-6 col-md-8 col-sm-10">
-      <h1 data-cy="loginTitle">Sign in</h1>
-      <div class="alert alert-danger" *ngIf="authenticationError" data-cy="loginError">
-        <strong>Failed to sign in!</strong> Please check your credentials and try again.
+<div class="Login">
+  <!------------------Header -------->
+  <div class="section-one">
+    <div class="h-100">
+      <!------------------header section--------->
+      <div class="header-section w-100 px-5" style="display: grid">
+        <div class="row d-flex align-items-center">
+          <div class="col-md-2 col-sm-12 d-flex align-items-center">
+            <img
+              (click)="goToHome()"
+              src="../../assets/img/main-page/header-digicade-logo-svg.svg"
+              alt=""
+              class="img-fluid cursor-pointer"
+            />
+          </div>
+          <div class="col-md-10 col-sm-12">
+            <div class="d-flex align-items-center justify-content-end">
+              <div class="button-box cursor-pointer">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="118.938"
+                  height="49.6"
+                  viewBox="0 0 118.938 49.6"
+                >
+                  <defs>
+                    <filter id="Sign_in" x="7.661" y="0.6" width="106" height="45" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_22821" x="84.884" y="0" width="34.054" height="32.6" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-2" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-2" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_22818" x="0" y="14.6" width="80.66" height="34.055" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-3" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-3" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Rectangle_659" x="8.661" y="28.6" width="104" height="21" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-4" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-4" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                  </defs>
+                  <g id="Group_4500" data-name="Group 4500" transform="translate(-1429.339 -22.4)">
+                    <g transform="matrix(1, 0, 0, 1, 1429.34, 22.4)" filter="url(#Sign_in)">
+                      <text
+                        id="Sign_in-2"
+                        data-name="Sign in"
+                        transform="translate(16.66 31.6)"
+                        fill="#fff"
+                        font-size="22"
+                        font-family="Square721BT-Roman, Square721 BT"
+                        letter-spacing="0.02em"
+                      >
+                        <tspan x="0" y="0" class="header-text-style">SIGN IN</tspan>
+                      </text>
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1429.34, 22.4)" filter="url(#Path_22821)">
+                      <path
+                        id="Path_22821-2"
+                        data-name="Path 22821"
+                        d="M4393.571-10093.973h15.554v14.1"
+                        transform="translate(-4299.69 10103.47)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1429.34, 22.4)" filter="url(#Path_22818)">
+                      <path
+                        id="Path_22818-2"
+                        data-name="Path 22818"
+                        d="M4393.571-10093.973h62.16v15.555"
+                        transform="translate(4465.23 -10054.82) rotate(180)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1429.34, 22.4)" filter="url(#Rectangle_659)">
+                      <rect
+                        id="Rectangle_659-2"
+                        data-name="Rectangle 659"
+                        width="86"
+                        height="3"
+                        transform="translate(17.66 37.6)"
+                        fill="#fff"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="mx-4 button-box cursor-pointer">
+                <svg
+                  (click)="goToRegister()"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="142.713"
+                  height="49.6"
+                  viewBox="0 0 142.713 49.6"
+                >
+                  <defs>
+                    <filter id="registeR" x="7.659" y="0.6" width="129" height="45" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_22820" x="108.659" y="0" width="34.054" height="32.6" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-2" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-2" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_22819" x="0" y="14.6" width="94.66" height="34.055" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-3" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-3" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Rectangle_658" x="9.659" y="28.6" width="126" height="21" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-4" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-4" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                  </defs>
+                  <g id="Group_4501" data-name="Group 4501" transform="translate(-1574.566 -22.4)">
+                    <g transform="matrix(1, 0, 0, 1, 1574.57, 22.4)" filter="url(#registeR)">
+                      <text
+                        id="registeR-2"
+                        data-name="registeR"
+                        transform="translate(16.66 31.6)"
+                        fill="#fff"
+                        font-size="22"
+                        font-family="Square721BT-Roman, Square721 BT"
+                        letter-spacing="0.02em"
+                      >
+                        <tspan x="0" y="0" class="header-text-style">REGISTER</tspan>
+                      </text>
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1574.57, 22.4)" filter="url(#Path_22820)">
+                      <path
+                        id="Path_22820-2"
+                        data-name="Path 22820"
+                        d="M4393.571-10093.973h15.554v14.1"
+                        transform="translate(-4275.91 10103.47)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1574.57, 22.4)" filter="url(#Path_22819)">
+                      <path
+                        id="Path_22819-2"
+                        data-name="Path 22819"
+                        d="M4393.571-10093.973h76.16v15.555"
+                        transform="translate(4479.23 -10054.82) rotate(180)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1574.57, 22.4)" filter="url(#Rectangle_658)">
+                      <rect
+                        id="Rectangle_658-2"
+                        data-name="Rectangle 658"
+                        width="108"
+                        height="3"
+                        transform="translate(18.66 37.6)"
+                        fill="#fff"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div class="button-box cursor-pointer">
+                <svg
+                  (click)="goToFaq()"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="142.713"
+                  height="49.6"
+                  viewBox="0 0 142.713 49.6"
+                >
+                  <defs>
+                    <filter id="FAQ" x="38.579" y="0.5" width="64" height="45" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_22912" x="108.659" y="0" width="34.054" height="32.6" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-2" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-2" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_22911" x="0" y="14.6" width="94.66" height="34.055" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-3" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-3" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                    <filter id="Path_23220" x="9.659" y="28.6" width="126" height="21" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur-4" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur-4" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                  </defs>
+                  <g id="Group_4502" data-name="Group 4502" transform="translate(-1743.566 -22.4)">
+                    <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#FAQ)">
+                      <text
+                        id="FAQ-2"
+                        data-name="FAQ"
+                        transform="translate(47.58 31.5)"
+                        fill="#fff"
+                        font-size="22"
+                        font-family="Square721BT-Roman, Square721 BT"
+                        letter-spacing="0.02em"
+                      >
+                        <tspan x="0" y="0" class="header-text-style">FAQ</tspan>
+                      </text>
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#Path_22912)">
+                      <path
+                        id="Path_22912-2"
+                        data-name="Path 22912"
+                        d="M4393.571-10093.973h15.554v14.1"
+                        transform="translate(-4275.91 10103.47)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#Path_22911)">
+                      <path
+                        id="Path_22911-2"
+                        data-name="Path 22911"
+                        d="M4393.571-10093.973h76.16v15.555"
+                        transform="translate(4479.23 -10054.82) rotate(180)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                    <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#Path_23220)">
+                      <path id="Path_23220-2" data-name="Path 23220" d="M0,0H108V3H0Z" transform="translate(18.66 37.6)" fill="#fff" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <form class="form" role="form" (ngSubmit)="login()" [formGroup]="loginForm">
-        <div class="mb-3">
-          <label class="username-label" for="username">Username</label>
-          <input
-            type="text"
-            class="form-control"
-            name="username"
-            id="username"
-            placeholder="Your username"
-            formControlName="username"
-            #username
-            data-cy="username"
-          />
-        </div>
+      <!--------------------Section 2 Form-------->
+      <div class="d-flex justify-content-center form-section">
+        <div class="form-box">
+          <div class="row h-100">
+            <div class="col-md-6 col-sm-12 form-section first-form-section-img h-100" style="color: white">
+              <div class="d-flex justify-content-center mt-4 pt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="140" height="38" viewBox="0 0 140 38">
+                  <text
+                    id="Sign_in"
+                    data-name="Sign in"
+                    transform="translate(0 31)"
+                    fill="#fff"
+                    font-size="31"
+                    font-family="square721M"
+                    letter-spacing="0.111em"
+                  >
+                    <tspan x="0" y="0" class="square721M">SIGN IN</tspan>
+                  </text>
+                </svg>
+              </div>
+              <div style="margin: 5% 14%">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
+                    <text
+                      id="First_Name"
+                      data-name="First Name"
+                      transform="translate(0 18)"
+                      fill="#fff"
+                      font-size="18"
+                      font-family="square721M"
+                      letter-spacing="0.111em"
+                    >
+                      <tspan x="0" y="0" class="square721M">E mail</tspan>
+                    </text>
+                  </svg>
+                </div>
+                <input [(ngModel)]="email" class="form-input mt-3" required />
+                <div class="mt-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
+                    <text
+                      id="First_Name"
+                      data-name="First Name"
+                      transform="translate(0 18)"
+                      fill="#fff"
+                      font-size="18"
+                      font-family="square721M"
+                      letter-spacing="0.111em"
+                    >
+                      <tspan x="0" y="0" class="square721M">Password</tspan>
+                    </text>
+                  </svg>
+                </div>
+                <input [(ngModel)]="password" class="form-input mt-3" required />
 
-        <div class="mb-3">
-          <label for="password">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            id="password"
-            placeholder="Your password"
-            formControlName="password"
-            data-cy="password"
-          />
-        </div>
+                <div class="d-flex justify-content-center mt-4 cursor-pointer">
+                  <svg
+                    (click)="login()"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="226.617"
+                    height="81.517"
+                    viewBox="0 0 226.617 81.517"
+                  >
+                    <defs>
+                      <filter id="Rectangle_660" x="8.689" y="7.759" width="210.513" height="65.22" filterUnits="userSpaceOnUse">
+                        <feOffset input="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feFlood flood-color="#2dd4ff" />
+                        <feComposite operator="in" in2="blur" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                      <filter id="Path_22827" x="178.898" y="0" width="47.719" height="44.984" filterUnits="userSpaceOnUse">
+                        <feOffset input="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="3" result="blur-2" />
+                        <feFlood flood-color="#2dd4ff" />
+                        <feComposite operator="in" in2="blur-2" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                      <filter id="Path_22826" x="0" y="33.798" width="161.571" height="47.719" filterUnits="userSpaceOnUse">
+                        <feOffset input="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="3" result="blur-3" />
+                        <feFlood flood-color="#2dd4ff" />
+                        <feComposite operator="in" in2="blur-3" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                    </defs>
+                    <g id="Group_4191" data-name="Group 4191" transform="translate(-571.311 -557.241)">
+                      <g transform="matrix(1, 0, 0, 1, 571.31, 557.24)" filter="url(#Rectangle_660)">
+                        <rect
+                          id="Rectangle_660-2"
+                          data-name="Rectangle 660"
+                          width="192.513"
+                          height="47.22"
+                          transform="translate(17.69 16.76)"
+                          fill="#fff"
+                        />
+                      </g>
+                      <text
+                        id="Sign_IN"
+                        data-name="Sign IN"
+                        transform="translate(634 606)"
+                        fill="#5d4475"
+                        font-size="21"
+                        font-family="square721M"
+                        letter-spacing="0.111em"
+                      >
+                        <tspan x="0" y="0">SIGN IN</tspan>
+                      </text>
+                      <g transform="matrix(1, 0, 0, 1, 571.31, 557.24)" filter="url(#Path_22827)">
+                        <path
+                          id="Path_22827-2"
+                          data-name="Path 22827"
+                          d="M4393.571-10093.972h29.219v26.484"
+                          transform="translate(-4205.67 10103.47)"
+                          fill="none"
+                          stroke="#fff"
+                          stroke-width="1"
+                        />
+                      </g>
+                      <g transform="matrix(1, 0, 0, 1, 571.31, 557.24)" filter="url(#Path_22826)">
+                        <path
+                          id="Path_22826-2"
+                          data-name="Path 22826"
+                          d="M0,0H143.071V29.219"
+                          transform="translate(152.57 72.02) rotate(180)"
+                          fill="none"
+                          stroke="#fff"
+                          stroke-width="1"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
 
-        <div class="form-check">
-          <label class="form-check-label" for="rememberMe">
-            <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe" />
-            <span>Remember me</span>
-          </label>
-        </div>
+                <div class="d-flex align-items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="265"
+                    height="19"
+                    viewBox="0 0 265 19"
+                  >
+                    <defs>
+                      <filter id="Line_25" x="0" y="0" width="265" height="19" filterUnits="userSpaceOnUse">
+                        <feOffset input="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feFlood flood-color="#2dd4ff" />
+                        <feComposite operator="in" in2="blur" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                    </defs>
+                    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Line_25)">
+                      <line
+                        id="Line_25-2"
+                        data-name="Line 25"
+                        x1="247"
+                        transform="translate(9 9.5)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                  </svg>
 
-        <div class="d-flex align-items-center">
-          <button type="submit" class="btn btn-primary mx-2" data-cy="submit">Sign in</button>
-          <asl-google-signin-button></asl-google-signin-button>
-          <button (click)="signInWithFB()">Sign in with FB</button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="40"
+                    height="35"
+                    viewBox="0 0 40 35"
+                  >
+                    <defs>
+                      <filter id="OR" x="0" y="0" width="40" height="35" filterUnits="userSpaceOnUse">
+                        <feOffset input="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feFlood flood-color="#2dd4ff" />
+                        <feComposite operator="in" in2="blur" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                    </defs>
+                    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#OR)">
+                      <text
+                        id="OR-2"
+                        data-name="OR"
+                        transform="translate(9 23)"
+                        fill="#fff"
+                        font-size="14"
+                        font-family="Square721BT-Roman, Square721 BT"
+                        letter-spacing="0.111em"
+                      >
+                        <tspan x="0" y="0">OR</tspan>
+                      </text>
+                    </g>
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="265"
+                    height="19"
+                    viewBox="0 0 265 19"
+                  >
+                    <defs>
+                      <filter id="Line_25" x="0" y="0" width="265" height="19" filterUnits="userSpaceOnUse">
+                        <feOffset input="SourceAlpha" />
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feFlood flood-color="#2dd4ff" />
+                        <feComposite operator="in" in2="blur" />
+                        <feComposite in="SourceGraphic" />
+                      </filter>
+                    </defs>
+                    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Line_25)">
+                      <line
+                        id="Line_25-2"
+                        data-name="Line 25"
+                        x1="247"
+                        transform="translate(9 9.5)"
+                        fill="none"
+                        stroke="#fff"
+                        stroke-width="1"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <div class="d-flex justify-content-center">
+                  <div class="d-flex align-items-center">
+                    <div (click)="signInWithFB()" class="fb-box cursor-pointer">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        width="31.007"
+                        height="44.761"
+                        viewBox="0 0 31.007 44.761"
+                      >
+                        <defs>
+                          <filter id="twitch" x="0" y="0" width="31.007" height="44.761" filterUnits="userSpaceOnUse">
+                            <feOffset input="SourceAlpha" />
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feFlood flood-color="#2dd4ff" />
+                            <feComposite operator="in" in2="blur" />
+                            <feComposite in="SourceGraphic" />
+                          </filter>
+                        </defs>
+                        <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#twitch)">
+                          <path
+                            id="twitch-2"
+                            data-name="twitch"
+                            d="M3.321,26.761V14.2H0V9.683H3.321V5.821C3.321,2.787,5.282,0,9.8,0a27.44,27.44,0,0,1,3.182.175L12.877,4.4s-1.38-.013-2.886-.013c-1.629,0-1.891.751-1.891,2v3.3h4.906L12.793,14.2H8.1V26.761H3.321"
+                            transform="translate(9 9)"
+                            fill="#fff"
+                          />
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="google-box cursor-pointer">
+                      <asl-google-signin-button></asl-google-signin-button>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="488" height="30" viewBox="0 0 488 30">
+                    <text
+                      id="This_site_is_protected_by_captcha_and_the_captcha_privacy_policy_and_terms_of_service_apply"
+                      data-name="This site is protected by captcha and the captcha privacy policy and terms of service apply"
+                      transform="translate(244 12)"
+                      fill="#fff"
+                      font-size="12"
+                      font-family="square721M"
+                      letter-spacing="0.111em"
+                    >
+                      <tspan x="-243" y="0">This site is protected by captcha and the captcha privacy policy and</tspan>
+                      <tspan x="-78" y="15">terms of service apply</tspan>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 img-section" style="color: white">
+              <div class="d-flex justify-content-end cursor-pointer" style="margin: 1% 2%">
+                <svg
+                  (click)="goToHome()"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="30.448"
+                  height="30.447"
+                  viewBox="0 0 40.448 40.447"
+                >
+                  <defs>
+                    <filter id="Path_31" x="0" y="0" width="40.448" height="40.447" filterUnits="userSpaceOnUse">
+                      <feOffset input="SourceAlpha" />
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feFlood flood-color="#2dd4ff" />
+                      <feComposite operator="in" in2="blur" />
+                      <feComposite in="SourceGraphic" />
+                    </filter>
+                  </defs>
+                  <g id="close" transform="translate(2.224 2.223)">
+                    <g transform="matrix(1, 0, 0, 1, -2.22, -2.22)" filter="url(#Path_31)">
+                      <path
+                        id="Path_31-2"
+                        data-name="Path 31"
+                        d="M9.337,7.216A1.5,1.5,0,1,0,7.216,9.337L15.879,18,7.215,26.662a1.5,1.5,0,1,0,2.121,2.121L18,20.121l8.663,8.663a1.5,1.5,0,1,0,2.121-2.121L20.121,18l8.663-8.663a1.5,1.5,0,1,0-2.121-2.121L18,15.879,9.337,7.215Z"
+                        transform="translate(2.22 2.22)"
+                        fill="#fff"
+                      />
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
-      </form>
-      <div class="mt-3 alert alert-warning">
-        <a class="alert-link" routerLink="/account/reset/request" data-cy="forgetYourPasswordSelector">Did you forget your password?</a>
-      </div>
-
-      <div class="alert alert-warning">
-        <span>You don't have an account yet?</span>
-        <a class="alert-link" routerLink="/account/register">Register a new account</a>
       </div>
     </div>
   </div>

@@ -73,6 +73,7 @@
   },
   "dependencies": {
     "@abacritt/angularx-social-login": "^1.2.5",
+    "@angular/animations": "^15.0.1",
     "@angular/common": "14.2.0",
     "@angular/compiler": "14.2.0",
     "@angular/core": "14.2.0",
@@ -83,6 +84,7 @@
     "@angular/router": "14.2.0",
     "@fortawesome/angular-fontawesome": "0.11.1",
     "@fortawesome/fontawesome-svg-core": "6.2.0",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "6.2.0",
     "@ng-bootstrap/ng-bootstrap": "13.0.0",
     "@popperjs/core": "2.11.6",
@@ -90,8 +92,10 @@
     "bootswatch": "5.2.0",
     "dayjs": "1.11.5",
     "ngx-infinite-scroll": "14.0.0",
+    "ngx-owl-carousel-o": "^14.0.1",
     "ngx-webstorage": "10.0.1",
     "rxjs": "7.5.6",
+    "scss-scaffold": "0.0.5",
     "tslib": "2.4.0",
     "zone.js": "0.11.6"
   },

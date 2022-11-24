@@ -7,10 +7,12 @@ import { AccountService } from 'app/core/auth/account.service';
 import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
 import { HttpClient } from '@angular/common/http';
 import { ApplicationConfigService } from '../core/config/application-config.service';
+import { Login } from './login.model';
 
 @Component({
   selector: 'jhi-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChild('username', { static: false })
@@ -26,6 +28,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   user: any;
   loggedIn: any;
+
+  email?: any;
+  password?: any;
+  rememberMe?: any;
 
   constructor(
     private accountService: AccountService,
@@ -59,8 +65,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   login(): void {
-    console.log('Form details', this.loginForm.getRawValue());
-    this.loginService.login(this.loginForm.getRawValue()).subscribe({
+    // console.log('Form details', this.loginForm.getRawValue());
+    let login = new Login(this.email, this.password, false);
+    console.log('Form details', login);
+    this.loginService.login(login).subscribe({
       next: () => {
         this.authenticationError = false;
         if (!this.router.getCurrentNavigation()) {
@@ -147,11 +155,21 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   signInWithFB(): void {
-    console.log('Login with google');
+    console.log('Login with facebook');
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
   }
 
   signOut(): void {
     this.authService.signOut();
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/']);
+  }
+  goToRegister(): void {
+    this.router.navigate(['/auth/register']);
+  }
+  goToFaq(): void {
+    this.router.navigate(['faq']);
   }
 }
