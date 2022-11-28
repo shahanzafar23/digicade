@@ -1,4 +1,3 @@
-<!--<app-header></app-header>-->
 <div class="HomePage">
   <!------------------Header and banner section-------->
   <div class="section-one">
@@ -102,7 +101,7 @@
             </div>
           </div>
           <div style="font-size: 22px; color: white">
-            <img src="../../content/img/main-page/coins.png" class="img-fluid" alt="" />
+            <img src="./content/img/main-page/coins.png" class="img-fluid" alt="" />
           </div>
         </div>
       </div>
@@ -113,40 +112,11 @@
     <div class="section-two-one px-5">
       <div class="h1">Trending Now</div>
       <div style="margin-top: 4%">
-        <owl-carousel-o [options]="customOptions">
-          <ng-container *ngFor="let slide of dynamicSlides">
-            <ng-template carouselSlide [id]="slide.id">
-              <!-- <img
-                [src]="slide.src"
-                [alt]="slide.alt"
-                [title]="slide.title"
-                style="width: 60%"
-              /> -->
-              <!-- <a [owlRouterLink]="slide.url">
-                <div class="carousel-card">
-                  <div
-                    style="height: 80%"
-                    class="d-flex justify-content-center"
-                  >
-                    <div>
-                      <img [src]="slide.src" />
-                    </div>
-                  </div>
-                </div>
-              </a> -->
-              <div class="carousel-card cursor-pointer">
-                <div style="height: 80%" class="d-flex justify-content-center">
-                  <div>
-                    <img [src]="slide.src" />
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ng-container>
-        </owl-carousel-o>
+        <jhi-app-carousel></jhi-app-carousel>
       </div>
     </div>
     <div class="section-two-two">
+      <jhi-app-footer></jhi-app-footer>
       <!--      <app-footer></app-footer>-->
     </div>
   </div>

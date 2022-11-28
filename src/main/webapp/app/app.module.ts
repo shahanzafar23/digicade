@@ -28,6 +28,12 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ErrorComponent } from './layouts/error/error.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppLoginComponent } from './app-login/app-login.component';
+import { AppFooterComponent } from './app-footer/app-footer.component';
+import { AppComponent } from './app/app.component';
+import { AppCarouselComponent } from './app-carousel/app-carousel.component';
+import { AppRegisterComponent } from './app-register/app-register.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   imports: [
@@ -42,6 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),
     CarouselModule,
     BrowserAnimationsModule,
+    SocialLoginModule,
   ],
   providers: [
     Title,
@@ -68,7 +75,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       } as SocialAuthServiceConfig,
     },
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    FooterComponent,
+    AppLoginComponent,
+    AppFooterComponent,
+    AppComponent,
+    AppCarouselComponent,
+    AppRegisterComponent,
+    FaqComponent,
+  ],
   bootstrap: [MainComponent],
   exports: [FooterComponent],
 })

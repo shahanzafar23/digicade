@@ -7,6 +7,10 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { Authority } from 'app/config/authority.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
+import { AppLoginComponent } from './app-login/app-login.component';
+import { AppComponent } from './app/app.component';
+import { AppRegisterComponent } from './app-register/app-register.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   imports: [
@@ -26,7 +30,16 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access.service'
         },
         {
           path: 'login',
-          loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+          component: AppLoginComponent,
+          // loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+        },
+        {
+          path: 'register',
+          component: AppRegisterComponent,
+        },
+        {
+          path: 'faq',
+          component: FaqComponent,
         },
         {
           path: '',

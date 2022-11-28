@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="373.731" height="116.861" viewBox="0 0 373.731 116.861">
+  <defs>
+    <filter id="Rectangle_660" x="14.502" y="14.361" width="347.763" height="88.092" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#2dd4ff"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_22827" x="311.858" y="0" width="61.873" height="57.813" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-color="#2dd4ff"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_22826" x="0" y="54.989" width="230.874" height="61.872" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-3"/>
+      <feFlood flood-color="#2dd4ff"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_5167" data-name="Group 5167" transform="translate(-57.498 -398.639)">
+    <g id="Group_5166" data-name="Group 5166">
+      <g transform="matrix(1, 0, 0, 1, 57.5, 398.64)" filter="url(#Rectangle_660)">
+        <rect id="Rectangle_660-2" data-name="Rectangle 660" width="329.763" height="70.092" transform="translate(23.5 23.36)" fill="#fff"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 57.5, 398.64)" filter="url(#Path_22827)">
+        <path id="Path_22827-2" data-name="Path 22827" d="M4393.57-10093.971h43.373v39.313" transform="translate(-4072.71 10103.47)" fill="none" stroke="#fff" stroke-width="1"/>
+      </g>
+      <g transform="matrix(1, 0, 0, 1, 57.5, 398.64)" filter="url(#Path_22826)">
+        <path id="Path_22826-2" data-name="Path 22826" d="M0,0H212.374V43.372" transform="translate(221.87 107.36) rotate(180)" fill="none" stroke="#fff" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>

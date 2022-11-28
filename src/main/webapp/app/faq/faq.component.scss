@@ -1,0 +1,196 @@
+.FAQ {
+  .h-100 {
+    height: 100%;
+  }
+  .w-100 {
+    width: 100%;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .header-text-style {
+    font-family: 'square721M';
+  }
+  .section-one {
+    height: 580px;
+    background-image: url('../../content/img/main-page/faq-bg.png');
+    background-repeat: none;
+    background-size: cover;
+    .header-section {
+      height: 12%;
+      .logo {
+        width: 70%;
+        @media screen and (max-width: 1100px) {
+          width: 100%;
+        }
+      }
+      .button-box {
+        position: relative;
+        min-width: 115px;
+        .button {
+          color: white;
+          border: 1px solid transparent;
+          background: transparent;
+          padding: 5px 0;
+          font-family: 'square721M';
+          letter-spacing: 1.3px;
+        }
+        .button-border {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          &:hover {
+            border-bottom: 2px solid white;
+          }
+        }
+      }
+    }
+    .banner-section {
+      height: 88%;
+      .h1 {
+        color: white;
+        font-family: 'square721b';
+        font-size: 4rem;
+        letter-spacing: 1px;
+        text-shadow: 0 0 13px #2dd4ff;
+        @media screen and (max-width: 600px) {
+          font-size: 2rem;
+        }
+        @media screen and (max-width: 768px) and (min-width: 601px) {
+          font-size: 2.5rem;
+        }
+        @media screen and (max-width: 1050px) and (min-width: 769px) {
+          font-size: 3rem;
+        }
+      }
+      .detail {
+        color: white;
+        font-family: 'segoe';
+        font-size: 1rem;
+        letter-spacing: 1px;
+        word-spacing: 1px;
+      }
+      .button-box {
+        position: relative;
+        width: 70%;
+        margin-top: 9%;
+        height: 105px;
+
+        .button {
+          position: absolute;
+          top: 12%;
+          border: 1px solid transparent;
+          background: white;
+          font-family: 'square721M';
+          font-size: 1.4rem;
+          padding: 8px 0;
+          margin-left: 5%;
+          width: 90%;
+        }
+        .button-border {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .section-two {
+    height: 1100px;
+    background-image: url('../../content/img/main-page/home-second-bg.png');
+    background-repeat: none;
+    background-size: cover;
+    @media screen and (max-width: 600px) {
+      height: 1400px;
+    }
+    .section-two-one {
+      height: 70%;
+      @media screen and (max-width: 1441px) {
+        height: 65%;
+      }
+      @media screen and (max-width: 600px) {
+        height: 60% !important;
+      }
+      .h1 {
+        color: white;
+        padding-top: 1%;
+        font-weight: 500;
+        font-size: 3.6rem;
+        font-family: 'segoe';
+        text-shadow: 0 0 13px #2dd4ff;
+        @media screen and (max-width: 600px) {
+          font-size: 1.6rem;
+        }
+        @media screen and (max-width: 768px) and (min-width: 601px) {
+          font-size: 1.9rem;
+        }
+        @media screen and (max-width: 1050px) and (min-width: 769px) {
+          font-size: 2.5rem;
+        }
+      }
+      .h2 {
+        color: white;
+        padding-top: 3%;
+        font-size: 1.6rem;
+        font-family: 'square721M';
+        letter-spacing: 2px;
+        @media screen and (max-width: 600px) {
+          font-size: 1rem;
+        }
+        @media screen and (max-width: 768px) and (min-width: 601px) {
+          font-size: 1.4rem;
+        }
+        @media screen and (max-width: 1050px) and (min-width: 769px) {
+          font-size: 1.5rem;
+        }
+      }
+
+      .faq-section {
+        margin: 0 15%;
+        @media screen and (max-width: 600px) {
+          margin: 0 0%;
+        }
+        @media screen and (max-width: 768px) and (min-width: 601px) {
+          margin: 0 7%;
+        }
+        @media screen and (max-width: 1050px) and (min-width: 769px) {
+          margin: 0 12%;
+        }
+        .faq-box {
+          background-color: #323657af;
+          height: 50px;
+          margin: 2% 0;
+          @media screen and (max-width: 600px) {
+            height: 70px;
+          }
+          @media screen and (max-width: 768px) and (min-width: 601px) {
+            height: 80px;
+          }
+          @media screen and (max-width: 1050px) and (min-width: 769px) {
+            height: 70px;
+          }
+        }
+        .fill-white {
+          fill: white;
+        }
+        .faq-font {
+          letter-spacing: 2px;
+          font-family: 'square721M';
+          color: white;
+        }
+      }
+    }
+    .section-two-two {
+      height: 30%;
+      background-color: rgb(133 159 225 / 48%);
+      -webkit-backdrop-filter: blur(4px);
+      backdrop-filter: blur(4px);
+      @media screen and (max-width: 1441px) {
+        height: 35%;
+      }
+      @media screen and (max-width: 600px) {
+        height: 40% !important;
+      }
+    }
+  }
+}

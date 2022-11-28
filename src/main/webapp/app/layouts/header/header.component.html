@@ -1,13 +1,13 @@
 <div class="Header">
   <div class="row d-flex align-items-center pt-1">
     <div class="col-md-2 col-sm-12 d-flex align-items-center">
-      <img [routerLink]="['/']" src="../../../assets/img/main-page/header-digicade-logo-svg.svg" alt="" class="img-fluid cursor-pointer" />
+      <img [routerLink]="['/']" src="../../../content/img/main-page/header-digicade-logo-svg.svg" alt="" class="img-fluid cursor-pointer" />
     </div>
     <div class="col-md-10 col-sm-12">
       <div class="d-flex align-items-center justify-content-end">
         <!----------------If user are login----------------->
         <div class="d-flex align-items-center">
-          <div routerLink="/" class="font-22">HOME</div>
+          <div routerLink="" class="font-22">HOME</div>
           <div class="mx-4 single-line"></div>
           <div class="font-22">GAMES</div>
           <div class="mx-4 single-line"></div>
@@ -175,7 +175,7 @@
             </g>
           </svg>
         </div>
-        <div class="button-box cursor-pointer" [routerLink]="['faq']">
+        <div class="button-box cursor-pointer" routerLink="/faq">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -255,6 +255,89 @@
             </g>
           </svg>
         </div>
+
+        <!--        Logout-start-->
+        <div class="button-box cursor-pointer" (click)="logout()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="142.713"
+            height="49.6"
+            viewBox="0 0 142.713 49.6"
+          >
+            <defs>
+              <filter id="FAQ" x="38.579" y="0.5" width="64" height="45" filterUnits="userSpaceOnUse">
+                <feOffset input="SourceAlpha" />
+                <feGaussianBlur stdDeviation="3" result="blur" />
+                <feFlood flood-color="#2dd4ff" />
+                <feComposite operator="in" in2="blur" />
+                <feComposite in="SourceGraphic" />
+              </filter>
+              <filter id="Path_22912" x="108.659" y="0" width="34.054" height="32.6" filterUnits="userSpaceOnUse">
+                <feOffset input="SourceAlpha" />
+                <feGaussianBlur stdDeviation="3" result="blur-2" />
+                <feFlood flood-color="#2dd4ff" />
+                <feComposite operator="in" in2="blur-2" />
+                <feComposite in="SourceGraphic" />
+              </filter>
+              <filter id="Path_22911" x="0" y="14.6" width="94.66" height="34.055" filterUnits="userSpaceOnUse">
+                <feOffset input="SourceAlpha" />
+                <feGaussianBlur stdDeviation="3" result="blur-3" />
+                <feFlood flood-color="#2dd4ff" />
+                <feComposite operator="in" in2="blur-3" />
+                <feComposite in="SourceGraphic" />
+              </filter>
+              <filter id="Path_23220" x="9.659" y="28.6" width="126" height="21" filterUnits="userSpaceOnUse">
+                <feOffset input="SourceAlpha" />
+                <feGaussianBlur stdDeviation="3" result="blur-4" />
+                <feFlood flood-color="#2dd4ff" />
+                <feComposite operator="in" in2="blur-4" />
+                <feComposite in="SourceGraphic" />
+              </filter>
+            </defs>
+            <g id="Group_4502" data-name="Group 4502" transform="translate(-1743.566 -22.4)">
+              <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#FAQ)">
+                <text
+                  id="FAQ-2"
+                  data-name="FAQ"
+                  transform="translate(47.58 31.5)"
+                  fill="#fff"
+                  font-size="22"
+                  font-family="Square721BT-Roman, Square721 BT"
+                  letter-spacing="0.02em"
+                >
+                  <tspan x="0" y="0" class="header-text-style">Signout</tspan>
+                </text>
+              </g>
+              <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#Path_22912)">
+                <path
+                  id="Path_22912-2"
+                  data-name="Path 22912"
+                  d="M4393.571-10093.973h15.554v14.1"
+                  transform="translate(-4275.91 10103.47)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="1"
+                />
+              </g>
+              <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#Path_22911)">
+                <path
+                  id="Path_22911-2"
+                  data-name="Path 22911"
+                  d="M4393.571-10093.973h76.16v15.555"
+                  transform="translate(4479.23 -10054.82) rotate(180)"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="1"
+                />
+              </g>
+              <g transform="matrix(1, 0, 0, 1, 1743.57, 22.4)" filter="url(#Path_23220)">
+                <path id="Path_23220-2" data-name="Path 23220" d="M0,0H108V3H0Z" transform="translate(18.66 37.6)" fill="#fff" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <!--        Logout-end-->
       </div>
     </div>
   </div>

@@ -1,0 +1,128 @@
+.Register {
+  .h-100 {
+    height: 100%;
+  }
+  .w-100 {
+    width: 100%;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .header-text-style {
+    font-family: 'square721M';
+  }
+  .disclimar {
+    font-size: 0.8rem;
+    font-family: 'square721M';
+  }
+  .section-one {
+    height: 100%;
+    width: 100%;
+    background-image: url('../../content/img/main-page/home-first-bg-new.png');
+    background-repeat: none;
+    background-size: auto;
+    .header-section {
+      height: 12%;
+      border-bottom: 1px solid white;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      background-color: rgb(106 106 157 / 49%);
+
+      .logo {
+        width: 70%;
+        @media screen and (max-width: 1100px) {
+          width: 100%;
+        }
+      }
+      .button-box {
+        position: relative;
+        min-width: 115px;
+        .button {
+          color: white;
+          border: 1px solid transparent;
+          background: transparent;
+          padding: 5px 0;
+          font-family: 'square721M';
+          letter-spacing: 1.3px;
+        }
+        .button-border {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          &:hover {
+            border-bottom: 2px solid white;
+          }
+        }
+      }
+    }
+    .form-section {
+      height: 80%;
+      .form-box {
+        position: relative;
+        width: 100%;
+        //   height: 745px;
+        margin: 3% 17%;
+        //background-color: #522d5b91;
+        // clip-path: polygon(
+        //   1% 10%,
+        //   7% 0,
+        //   100% 0,
+        //   100% 100%,
+        //   100% 100%,
+        //   100% 100%,
+        //   0% 100%,
+        //   0% 100%,
+        //   1% 100%
+        // );
+        .first-form-section-img {
+          background-image: url('../../content/img/main-page/bg-form-register-new.svg');
+          background-size: cover;
+          backdrop-filter: blur(6px);
+          //background-color: #522d5b91;
+        }
+        .form-section {
+          // background-repeat: none;
+          // background-image: url("../../content/img/main-page/register-line.svg");
+          // height: 100%;
+          // background-size: 116% 99%;
+
+          .form-input {
+            width: 100%;
+            height: 30px;
+            background-color: #282845a4;
+            border: 0px solid transparent;
+            color: white;
+          }
+          .form-input::placeholder {
+            color: #a4afbb;
+          }
+          .checkbox {
+            border: 1px solid white;
+            background-color: transparent;
+            padding: 10%;
+            &:before {
+              background-color: red;
+            }
+          }
+          .fb-box {
+            border: 1px solid white;
+            padding: 8% 28%;
+            margin-left: -65%;
+          }
+          .google-box {
+            border: 1px solid white;
+            padding: 11% 20%;
+            margin-left: 30%;
+          }
+        }
+        .img-section {
+          background-repeat: none;
+          background-image: url('../../content/img/main-page/register-bg.png');
+          height: 100%;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+}

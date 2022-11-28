@@ -10,5 +10,6 @@ import { HeaderComponent } from '../layouts/header/header.component';
 @NgModule({
   imports: [SharedModule, RouterModule.forChild([HOME_ROUTE]), CarouselModule],
   declarations: [HomeComponent, HeaderComponent],
+  exports: [HeaderComponent],
 })
 export class HomeModule {}
