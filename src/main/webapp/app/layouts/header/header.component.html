@@ -257,7 +257,7 @@
         </div>
 
         <!--        Logout-start-->
-        <div class="button-box cursor-pointer" (click)="logout()">
+        <div [hidden]="!isSignedIn" class="button-box cursor-pointer" (click)="logout()">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"

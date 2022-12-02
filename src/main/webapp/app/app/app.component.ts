@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { AccountService } from '../core/auth/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'jhi-app',

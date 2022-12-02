@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../login/login.service';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Router } from '@angular/router';
+import { AccountService } from '../../core/auth/account.service';
 
 @Component({
   selector: 'app-header',
@@ -9,9 +10,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private loginService: LoginService, private socialAuthService: SocialAuthService, private router: Router) {}
+  isSignedIn: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(
+    private loginService: LoginService,
+    private socialAuthService: SocialAuthService,
+    private router: Router,
+    private accountService: AccountService
+  ) {}
+
+  ngOnInit(): void {
+    // if already authenticated then navigate to home page
+    this.accountService.identity().subscribe(() => {
+      if (this.accountService.isAuthenticated()) {
+        this.isSignedIn = true;
+      }
+    });
+  }
 
   logout(): void {
     this.loginService.logout();
