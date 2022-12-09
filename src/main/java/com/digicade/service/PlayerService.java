@@ -1,5 +1,6 @@
 package com.digicade.service;
 
+import com.digicade.domain.Player;
 import com.digicade.service.dto.PlayerDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -48,6 +49,8 @@ public interface PlayerService {
      * @return the entity.
      */
     Optional<PlayerDTO> findOne(Long id);
+
+    Player findPlayerById(Long id);
 
     /**
      * Delete the "id" player.

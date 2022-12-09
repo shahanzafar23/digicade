@@ -95,6 +95,17 @@ public class DigiUserServiceImpl implements DigiUserService {
     }
 
     @Override
+    public DigiUser findDigiUsers(Long id) {
+        log.debug("Request to get DigiUser : {}", id);
+        log.debug("Response to get DigiUser : {}", digiUserRepository.findById(id));
+        Optional<DigiUser> optional = digiUserRepository.findById(id);
+        if (!optional.isPresent()) {
+            return null;
+        }
+        return optional.get();
+    }
+
+    @Override
     public void delete(Long id) {
         log.debug("Request to delete DigiUser : {}", id);
         digiUserRepository.deleteById(id);

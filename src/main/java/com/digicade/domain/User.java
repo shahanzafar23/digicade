@@ -2,6 +2,7 @@ package com.digicade.domain;
 
 import com.digicade.config.Constants;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.HashSet;
@@ -78,6 +79,10 @@ public class User extends AbstractAuditingEntity<Long> implements Serializable {
 
     @Column(name = "reset_date")
     private Instant resetDate = null;
+
+    @JsonIgnoreProperties(value = { "user" }, allowSetters = true)
+    @OneToOne(mappedBy = "user")
+    private DigiUser digiUser;
 
     @JsonIgnore
     @ManyToMany
@@ -203,6 +208,14 @@ public class User extends AbstractAuditingEntity<Long> implements Serializable {
 
     public void setProvider(String provider) {
         this.provider = provider;
+    }
+
+    public DigiUser getDigiUser() {
+        return digiUser;
+    }
+
+    public void setDigiUser(DigiUser digiUser) {
+        this.digiUser = digiUser;
     }
 
     @Override

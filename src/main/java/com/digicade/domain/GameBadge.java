@@ -23,13 +23,15 @@ public class GameBadge implements Serializable {
     @Column(name = "logo_url")
     private String logoUrl;
 
+    //"gameBadges"
     @ManyToOne
-    @JsonIgnoreProperties(value = { "gameScores", "highScores", "gameBadges", "gameLevels" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "gameScores", "highScores", "gameLevels" }, allowSetters = true)
     private Game game;
 
+    //"gameBadges"
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "digiUser", "gameScores", "highScores", "gameBadges", "transactions", "playerCouponRewards", "playerNftRewards" },
+        value = { "digiUser", "gameScores", "highScores", "transactions", "playerCouponRewards", "playerNftRewards" },
         allowSetters = true
     )
     private Player player;

@@ -1,5 +1,6 @@
 package com.digicade.web.rest;
 
+import com.digicade.domain.Player;
 import com.digicade.repository.PlayerRepository;
 import com.digicade.service.PlayerService;
 import com.digicade.service.dto.PlayerDTO;
@@ -164,6 +165,14 @@ public class PlayerResource {
         log.debug("REST request to get Player : {}", id);
         Optional<PlayerDTO> playerDTO = playerService.findOne(id);
         return ResponseUtil.wrapOrNotFound(playerDTO);
+    }
+
+    @GetMapping("/myplayers/{id}")
+    public ResponseEntity<Player> findPlayerById(@PathVariable Long id) {
+        log.debug("REST request to get Player : {}", id);
+        Player player = playerService.findPlayerById(id);
+
+        return new ResponseEntity<>(player, HttpStatus.OK);
     }
 
     /**

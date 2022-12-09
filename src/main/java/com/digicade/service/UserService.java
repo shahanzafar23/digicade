@@ -2,6 +2,8 @@ package com.digicade.service;
 
 import com.digicade.config.Constants;
 import com.digicade.domain.Authority;
+import com.digicade.domain.GameBadge;
+import com.digicade.domain.Player;
 import com.digicade.domain.User;
 import com.digicade.repository.AuthorityRepository;
 import com.digicade.repository.UserRepository;
@@ -9,6 +11,7 @@ import com.digicade.security.AuthoritiesConstants;
 import com.digicade.security.SecurityUtils;
 import com.digicade.service.dto.AdminUserDTO;
 import com.digicade.service.dto.UserDTO;
+import com.digicade.service.dto.UserProfileDTO;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
@@ -127,7 +130,7 @@ public class UserService {
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
         // new user is not active
-        newUser.setActivated(false);
+        newUser.setActivated(userDTO.isActivated());
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         Set<Authority> authorities = new HashSet<>();
@@ -292,6 +295,46 @@ public class UserService {
     @Transactional(readOnly = true)
     public Page<AdminUserDTO> getAllManagedUsers(Pageable pageable) {
         return userRepository.findAll(pageable).map(AdminUserDTO::new);
+    }
+
+    public User getUserById(Long id) {
+        Optional<User> optional = userRepository.findById(id);
+
+        if (optional.isPresent()) {
+            return optional.get();
+        }
+
+        return null;
+    }
+
+    public UserProfileDTO getUserProfile(Long id) {
+        Optional<User> optional = userRepository.findById(id);
+
+        if (!optional.isPresent()) {
+            return null;
+        }
+
+        User user = optional.get();
+
+        UserProfileDTO profile = new UserProfileDTO();
+
+        profile.setFirstName(user.getFirstName());
+        profile.setLastName(user.getLastName());
+        profile.setUsername(user.getLogin());
+        profile.setEmail(user.getEmail());
+        //profile.setPhoneNumber(null);
+        //profile.setGender();
+        profile.setImageUrl(user.getImageUrl());
+
+        Player player = user.getDigiUser().getPlayer();
+
+        //profile.setXp();
+        profile.setTix(player.getTix());
+        profile.setComp(player.getComp());
+        profile.setCredit(player.getGamePlayCredits());
+        //profile.setBadges();
+
+        return profile;
     }
 
     @Transactional(readOnly = true)

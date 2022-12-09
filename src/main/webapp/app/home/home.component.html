@@ -1,153 +1,54 @@
-<!--<app-header></app-header>-->
-<div class="HomePage">
-  <!------------------Header and banner section-------->
-  <div class="section-one">
-    <div class="h-100">
-      <!------------------header section--------->
-      <div class="header-section w-100 px-5" style="display: grid">
-        <app-header></app-header>
-      </div>
-      <!------------banner section---------------------->
-      <div class="px-5 banner-section">
-        <div class="d-flex align-items-center h-100 justify-content-between">
-          <div class="d-flex align-items-center h-100">
-            <div>
-              <div class="h1">PLAY GAMES</div>
-              <!-- <div class="detail">
-                Welcome to DIGICADE! Play online and win great prizes!
-              </div> -->
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="513" height="27" viewBox="0 0 613 27">
-                  <text
-                    id="Welcome_to_DIGICADE_Play_online_and_win_great_prizes_"
-                    data-name="Welcome to DIGICADE! Play online and win great prizes!"
-                    transform="translate(0 22)"
-                    fill="#fff"
-                    font-size="20"
-                    font-family="SegoeUI, Segoe UI"
-                    letter-spacing="0.111em"
-                  >
-                    <tspan x="0" y="0">Welcome to DIGICADE! Play online and win great prizes!</tspan>
-                  </text>
-                </svg>
-              </div>
-
-              <div class="button-box">
-                <div class="button-border">
-                  <div class="w-100 h-100">
-                    <div style="height: 40%">
-                      <div class="d-flex justify-content-end">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink"
-                          style="width: 17%; margin-top: -3%"
-                        >
-                          <defs>
-                            <filter id="Path_22827" x="0" y="0" width="61.873" filterUnits="userSpaceOnUse">
-                              <feOffset input="SourceAlpha" />
-                              <feGaussianBlur stdDeviation="3" result="blur" />
-                              <feFlood flood-color="#2dd4ff" />
-                              <feComposite operator="in" in2="blur" />
-                              <feComposite in="SourceGraphic" />
-                            </filter>
-                          </defs>
-                          <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_22827)">
-                            <path
-                              id="Path_22827-2"
-                              data-name="Path 22827"
-                              d="M4393.57-10093.971h43.373v39.313"
-                              transform="translate(-4384.57 10103.47)"
-                              fill="none"
-                              stroke="#fff"
-                              stroke-width="1"
-                            />
-                          </g>
-                        </svg>
-                      </div>
-                    </div>
-                    <div style="height: 60%; position: relative">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        style="position: absolute; top: -27%; left: -2%"
-                      >
-                        <defs>
-                          <filter id="Path_22826" x="0" y="0" width="230.874" height="61.872" filterUnits="userSpaceOnUse">
-                            <feOffset input="SourceAlpha" />
-                            <feGaussianBlur stdDeviation="3" result="blur" />
-                            <feFlood flood-color="#2dd4ff" />
-                            <feComposite operator="in" in2="blur" />
-                            <feComposite in="SourceGraphic" />
-                          </filter>
-                        </defs>
-                        <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Path_22826)">
-                          <path
-                            id="Path_22826-2"
-                            data-name="Path 22826"
-                            d="M0,0H212.374V43.372"
-                            transform="translate(221.87 52.37) rotate(180)"
-                            fill="none"
-                            stroke="#fff"
-                            stroke-width="1"
-                          />
-                        </g>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-                <button class="button cursor-pointer" [routerLink]="['/auth/register']">
-                  <div class="d-flex justify-content-center" style="color: #5d4475">START JOURNEY</div>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div style="font-size: 22px; color: white">
-            <img src="../../content/img/main-page/coins.png" class="img-fluid" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-md-3">
+    <span class="hipster img-fluid rounded"></span>
   </div>
-  <!--------------------Section 2 (slider )-------->
-  <div class="section-two">
-    <div class="section-two-one px-5">
-      <div class="h1">Trending Now</div>
-      <div style="margin-top: 4%">
-        <owl-carousel-o [options]="customOptions">
-          <ng-container *ngFor="let slide of dynamicSlides">
-            <ng-template carouselSlide [id]="slide.id">
-              <!-- <img
-                [src]="slide.src"
-                [alt]="slide.alt"
-                [title]="slide.title"
-                style="width: 60%"
-              /> -->
-              <!-- <a [owlRouterLink]="slide.url">
-                <div class="carousel-card">
-                  <div
-                    style="height: 80%"
-                    class="d-flex justify-content-center"
-                  >
-                    <div>
-                      <img [src]="slide.src" />
-                    </div>
-                  </div>
-                </div>
-              </a> -->
-              <div class="carousel-card cursor-pointer">
-                <div style="height: 80%" class="d-flex justify-content-center">
-                  <div>
-                    <img [src]="slide.src" />
-                  </div>
-                </div>
-              </div>
-            </ng-template>
-          </ng-container>
-        </owl-carousel-o>
+
+  <div class="col-md-9">
+    <h1 class="display-4"><span>Welcome, Java Hipster!</span> (Digicade)</h1>
+
+    <p class="lead">This is your homepage</p>
+
+    <div [ngSwitch]="account !== null">
+      <div class="alert alert-success" *ngSwitchCase="true">
+        <span id="home-logged-message" *ngIf="account">You are logged in as user "{{ account.login }}".</span>
+      </div>
+
+      <div class="alert alert-warning" *ngSwitchCase="false">
+        <span>If you want to </span>
+        <a class="alert-link" (click)="login()">sign in</a
+        ><span
+          >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
+          password="user").</span
+        >
+      </div>
+
+      <div class="alert alert-warning" *ngSwitchCase="false">
+        <span>You don't have an account yet?</span>&nbsp;
+        <a class="alert-link" routerLink="account/register">Register a new account</a>
       </div>
     </div>
-    <div class="section-two-two">
-      <!--      <app-footer></app-footer>-->
-    </div>
+
+    <p>If you have any question on JHipster:</p>
+
+    <ul>
+      <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">JHipster homepage</a></li>
+      <li>
+        <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">JHipster on Stack Overflow</a>
+      </li>
+      <li>
+        <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer"
+          >JHipster bug tracker</a
+        >
+      </li>
+      <li>
+        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">JHipster public chat room</a>
+      </li>
+      <li><a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">follow @jhipster on Twitter</a></li>
+    </ul>
+
+    <p>
+      <span>If you like JHipster, don't forget to give us a star on</span>
+      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">GitHub</a>!
+    </p>
   </div>
 </div>

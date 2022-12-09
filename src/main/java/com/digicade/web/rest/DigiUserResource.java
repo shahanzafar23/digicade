@@ -1,5 +1,6 @@
 package com.digicade.web.rest;
 
+import com.digicade.domain.DigiUser;
 import com.digicade.repository.DigiUserRepository;
 import com.digicade.service.DigiUserService;
 import com.digicade.service.dto.DigiUserDTO;
@@ -65,6 +66,15 @@ public class DigiUserResource {
             .created(new URI("/api/digi-users/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
             .body(result);
+    }
+
+    @PostMapping("/digiusers")
+    public ResponseEntity<DigiUser> createDigiUser2(@RequestBody DigiUser user) throws URISyntaxException {
+        log.debug("REST request to save DigiUser : {}", user);
+
+        DigiUser save = digiUserRepository.save(user);
+
+        return new ResponseEntity<>(save, HttpStatus.OK);
     }
 
     /**
@@ -170,6 +180,13 @@ public class DigiUserResource {
         log.debug("REST request to get DigiUser : {}", id);
         Optional<DigiUserDTO> digiUserDTO = digiUserService.findOne(id);
         return ResponseUtil.wrapOrNotFound(digiUserDTO);
+    }
+
+    @GetMapping("/digiusers/{id}")
+    public ResponseEntity<DigiUser> getDigiUserById(@PathVariable Long id) {
+        log.debug("REST request to get DigiUser : {}", id);
+        DigiUser digiUser = digiUserService.findDigiUsers(id);
+        return new ResponseEntity<>(digiUser, HttpStatus.OK);
     }
 
     /**

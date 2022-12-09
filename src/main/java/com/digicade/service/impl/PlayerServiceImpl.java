@@ -85,6 +85,19 @@ public class PlayerServiceImpl implements PlayerService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public Player findPlayerById(Long id) {
+        log.debug("Request to get Player : {}", id);
+        Optional<Player> optional = playerRepository.findById(id);
+
+        if (optional.isPresent()) {
+            return null;
+        }
+
+        return optional.get();
+    }
+
+    @Override
     public void delete(Long id) {
         log.debug("Request to delete Player : {}", id);
         playerRepository.deleteById(id);

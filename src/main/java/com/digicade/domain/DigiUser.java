@@ -1,6 +1,7 @@
 package com.digicade.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
@@ -42,12 +43,18 @@ public class DigiUser implements Serializable {
     @Column(name = "promo_code")
     private String promoCode;
 
-    @JsonIgnoreProperties(
-        value = { "digiUser", "gameScores", "highScores", "gameBadges", "transactions", "playerCouponRewards", "playerNftRewards" },
-        allowSetters = true
-    )
+    //"gameScores"
+    //"highScores"
+    //"gameBadges"
+    @JsonIgnoreProperties(value = { "digiUser", "transactions", "playerCouponRewards", "playerNftRewards" }, allowSetters = true)
     @OneToOne(mappedBy = "digiUser")
     private Player player;
+
+    @JsonIgnoreProperties(value = { "digiUser" }, allowSetters = true)
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "id")
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -172,6 +179,14 @@ public class DigiUser implements Serializable {
     public DigiUser player(Player player) {
         this.setPlayer(player);
         return this;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here

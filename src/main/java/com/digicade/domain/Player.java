@@ -1,5 +1,6 @@
 package com.digicade.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -41,16 +42,19 @@ public class Player implements Serializable {
     @JoinColumn(name = "id")
     private DigiUser digiUser;
 
+    //"game"
     @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties(value = { "game", "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
     private Set<GameScore> gameScores = new HashSet<>();
 
+    //"game"
     @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties(value = { "game", "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
     private Set<HighScore> highScores = new HashSet<>();
 
+    //"game"
     @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties(value = { "game", "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
     private Set<GameBadge> gameBadges = new HashSet<>();
 
     @OneToMany(mappedBy = "player")

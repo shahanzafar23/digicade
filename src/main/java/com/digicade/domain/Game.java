@@ -28,8 +28,9 @@ public class Game implements Serializable {
     @Column(name = "logo_url")
     private String logoUrl;
 
+    //"game"
     @OneToMany(mappedBy = "game")
-    @JsonIgnoreProperties(value = { "game", "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
     private Set<GameScore> gameScores = new HashSet<>();
 
     @OneToMany(mappedBy = "game")

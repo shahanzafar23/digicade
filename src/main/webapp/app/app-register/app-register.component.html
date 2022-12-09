@@ -25,7 +25,7 @@
                   </text>
                 </svg>
               </div>
-              <div style="margin: 5% 14%">
+              <div [formGroup]="registerForm" style="margin: 5% 14%">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
                     <text
@@ -41,7 +41,7 @@
                     </text>
                   </svg>
                 </div>
-                <input name="myInput" ng-model="myInput" class="form-input mt-3" required />
+                <input name="firstName" formControlName="firstName" ng-model="myInput" class="form-input mt-3" required />
                 <div class="mt-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
                     <text
@@ -57,7 +57,7 @@
                     </text>
                   </svg>
                 </div>
-                <input name="myInput" ng-model="myInput" class="form-input mt-3" required />
+                <input name="lastName" formControlName="lastName" ng-model="myInput" class="form-input mt-3" required />
                 <div class="mt-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
                     <text
@@ -73,7 +73,7 @@
                     </text>
                   </svg>
                 </div>
-                <input name="myInput" ng-model="myInput" class="form-input mt-3" required />
+                <input name="email" formControlName="email" ng-model="email" class="form-input mt-3" required />
                 <div class="mt-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
                     <text
@@ -89,7 +89,7 @@
                     </text>
                   </svg>
                 </div>
-                <input name="myInput" ng-model="myInput" class="form-input mt-3" required />
+                <input name="login" formControlName="login" ng-model="login" class="form-input mt-3" required />
                 <div class="mt-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
                     <text
@@ -105,7 +105,29 @@
                     </text>
                   </svg>
                 </div>
-                <input name="myInput" ng-model="myInput" class="form-input mt-3" required />
+                <input name="password" formControlName="password" ng-model="password" class="form-input mt-3" required />
+                <div class="mt-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="117" height="22" viewBox="0 0 117 22">
+                    <text
+                      id="First_Name"
+                      data-name="Confirm Password"
+                      transform="translate(0 18)"
+                      fill="#fff"
+                      font-size="18"
+                      font-family="square721M"
+                      letter-spacing="0.111em"
+                    >
+                      <tspan x="0" y="0">Confirm Password</tspan>
+                    </text>
+                  </svg>
+                </div>
+                <input
+                  name="confirmPassword"
+                  formControlName="confirmPassword"
+                  ng-model="confirmPassword"
+                  class="form-input mt-3"
+                  required
+                />
                 <div>
                   <div class="mt-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="180" height="22" viewBox="0 0 117 22" style="margin-left: -7%">
@@ -169,7 +191,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="d-flex justify-content-center mt-4 cursor-pointer" [routerLink]="['/']">
+                <div (click)="register()" class="d-flex justify-content-center mt-4 cursor-pointer">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -339,7 +361,7 @@
                 </div>
                 <div class="d-flex justify-content-center">
                   <div class="d-flex align-items-center">
-                    <div class="fb-box cursor-pointer">
+                    <div (click)="signInWithFB()" class="fb-box cursor-pointer">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -368,34 +390,7 @@
                       </svg>
                     </div>
                     <div class="google-box cursor-pointer">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        width="40.083"
-                        height="40.301"
-                        viewBox="0 0 40.083 40.301"
-                      >
-                        <defs>
-                          <filter id="Path_32" x="0" y="0" width="40.083" height="40.301" filterUnits="userSpaceOnUse">
-                            <feOffset input="SourceAlpha" />
-                            <feGaussianBlur stdDeviation="3" result="blur" />
-                            <feFlood flood-color="#2dd4ff" />
-                            <feComposite operator="in" in2="blur" />
-                            <feComposite in="SourceGraphic" />
-                          </filter>
-                        </defs>
-                        <g id="google" transform="translate(9 9)">
-                          <g transform="matrix(1, 0, 0, 1, -9, -9)" filter="url(#Path_32)">
-                            <path
-                              id="Path_32-2"
-                              data-name="Path 32"
-                              d="M7.46,14.151a6.69,6.69,0,0,0,13,2.23h-6.31V11.92H25.083v4.46h-.005A11.151,11.151,0,1,1,23.385,7.9L19.73,10.457A6.69,6.69,0,0,0,7.46,14.151Z"
-                              transform="translate(6 6)"
-                              fill="#fff"
-                            />
-                          </g>
-                        </g>
-                      </svg>
+                      <asl-google-signin-button></asl-google-signin-button>
                     </div>
                   </div>
                 </div>

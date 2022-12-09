@@ -27,8 +27,9 @@ public class GameScore implements Serializable {
     @Column(name = "date")
     private LocalDate date;
 
+    //"gameScores"
     @ManyToOne
-    @JsonIgnoreProperties(value = { "gameScores", "highScores", "gameBadges", "gameLevels" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "highScores", "gameBadges", "gameLevels" }, allowSetters = true)
     private Game game;
 
     @ManyToOne

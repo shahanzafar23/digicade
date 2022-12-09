@@ -1,5 +1,6 @@
 package com.digicade.service;
 
+import com.digicade.domain.DigiUser;
 import com.digicade.service.dto.DigiUserDTO;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +56,8 @@ public interface DigiUserService {
      * @return the entity.
      */
     Optional<DigiUserDTO> findOne(Long id);
+
+    DigiUser findDigiUsers(Long id);
 
     /**
      * Delete the "id" digiUser.
