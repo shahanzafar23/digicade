@@ -13,5 +13,11 @@
                                  constraintName="fk_player__digi_user_id"
                                  referencedColumnNames="id"
                                  referencedTableName="digi_user"/>
+
+<!--        <addForeignKeyConstraint baseColumnNames="id"-->
+<!--                                 baseTableName="player"-->
+<!--                                 constraintName="fk_player__user_id"-->
+<!--                                 referencedColumnNames="id"-->
+<!--                                 referencedTableName="jhi_user"/>-->
     </changeSet>
 </databaseChangeLog>

@@ -19,6 +19,8 @@ public class Player implements Serializable {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
     @Column(name = "game_play_credits")
@@ -36,25 +38,28 @@ public class Player implements Serializable {
     @Column(name = "wallet_address")
     private String walletAddress;
 
-    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player", "user" }, allowSetters = true)
     @OneToOne
     @MapsId
     @JoinColumn(name = "id")
     private DigiUser digiUser;
 
-    //"game"
+    @JsonIgnoreProperties(value = { "player", "digiUser" }, allowSetters = true)
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = "id")
+    private User user;
+
     @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player", "game" }, allowSetters = true)
     private Set<GameScore> gameScores = new HashSet<>();
 
-    //"game"
     @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player", "game" }, allowSetters = true)
     private Set<HighScore> highScores = new HashSet<>();
 
-    //"game"
     @OneToMany(mappedBy = "player")
-    @JsonIgnoreProperties(value = { "player" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "player", "game" }, allowSetters = true)
     private Set<GameBadge> gameBadges = new HashSet<>();
 
     @OneToMany(mappedBy = "player")
@@ -147,6 +152,14 @@ public class Player implements Serializable {
 
     public void setWalletAddress(String walletAddress) {
         this.walletAddress = walletAddress;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public DigiUser getDigiUser() {

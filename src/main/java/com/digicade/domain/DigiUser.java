@@ -43,14 +43,15 @@ public class DigiUser implements Serializable {
     @Column(name = "promo_code")
     private String promoCode;
 
-    //"gameScores"
-    //"highScores"
-    //"gameBadges"
-    @JsonIgnoreProperties(value = { "digiUser", "transactions", "playerCouponRewards", "playerNftRewards" }, allowSetters = true)
+    //"gameScores",
+    @JsonIgnoreProperties(
+        value = { "digiUser", "gameBadges", "highScores", "transactions", "playerCouponRewards", "playerNftRewards" },
+        allowSetters = true
+    )
     @OneToOne(mappedBy = "digiUser")
     private Player player;
 
-    @JsonIgnoreProperties(value = { "digiUser" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "digiUser", "player" }, allowSetters = true)
     @OneToOne
     @MapsId
     @JoinColumn(name = "id")

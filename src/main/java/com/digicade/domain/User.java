@@ -84,6 +84,10 @@ public class User extends AbstractAuditingEntity<Long> implements Serializable {
     @OneToOne(mappedBy = "user")
     private DigiUser digiUser;
 
+    @JsonIgnoreProperties(value = { "user", "digiUser" }, allowSetters = true)
+    @OneToOne(mappedBy = "user")
+    private Player player;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -216,6 +220,14 @@ public class User extends AbstractAuditingEntity<Long> implements Serializable {
 
     public void setDigiUser(DigiUser digiUser) {
         this.digiUser = digiUser;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     @Override

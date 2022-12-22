@@ -10,6 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "game_score")
+@JsonIgnoreProperties(value = { "player" })
 @SuppressWarnings("common-java:DuplicatedBlocks")
 public class GameScore implements Serializable {
 
@@ -27,14 +28,14 @@ public class GameScore implements Serializable {
     @Column(name = "date")
     private LocalDate date;
 
-    //"gameScores"
     @ManyToOne
-    @JsonIgnoreProperties(value = { "highScores", "gameBadges", "gameLevels" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "highScores", "gameScores", "gameBadges", "gameLevels" }, allowSetters = true)
     private Game game;
 
+    //"gameScores",
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "digiUser", "gameScores", "highScores", "gameBadges", "transactions", "playerCouponRewards", "playerNftRewards" },
+        value = { "digiUser", "highScores", "gameBadges", "transactions", "playerCouponRewards", "playerNftRewards" },
         allowSetters = true
     )
     private Player player;

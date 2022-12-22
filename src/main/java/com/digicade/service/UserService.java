@@ -1,23 +1,21 @@
 package com.digicade.service;
 
 import com.digicade.config.Constants;
-import com.digicade.domain.Authority;
-import com.digicade.domain.GameBadge;
-import com.digicade.domain.Player;
-import com.digicade.domain.User;
-import com.digicade.repository.AuthorityRepository;
-import com.digicade.repository.UserRepository;
+import com.digicade.domain.*;
+import com.digicade.repository.*;
 import com.digicade.security.AuthoritiesConstants;
 import com.digicade.security.SecurityUtils;
-import com.digicade.service.dto.AdminUserDTO;
-import com.digicade.service.dto.UserDTO;
-import com.digicade.service.dto.UserProfileDTO;
+import com.digicade.service.dto.*;
+import com.digicade.service.mapper.PlayerMapper;
+import com.digicade.service.mapper.UserMapper;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
+import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,11 +36,20 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    @Autowired
+    private PlayerRepository playerRepository;
+
     private final PasswordEncoder passwordEncoder;
 
     private final AuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
+
+    @Autowired
+    private GameBadgeRepository gameBadgeRepository;
+
+    @Autowired
+    private GameScoreRepository gameScoreRepository;
 
     public UserService(
         UserRepository userRepository,
@@ -136,7 +143,14 @@ public class UserService {
         Set<Authority> authorities = new HashSet<>();
         authorityRepository.findById(AuthoritiesConstants.USER).ifPresent(authorities::add);
         newUser.setAuthorities(authorities);
+
+        log.debug("INSIDE registerUser before save");
+        Player player = new Player();
+        //        Player savePlayer = playerRepository.save(player);
+        //        newUser.setPlayer(savePlayer);
+        playerRepository.save(player);
         userRepository.save(newUser);
+
         this.clearUserCaches(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
@@ -199,6 +213,10 @@ public class UserService {
         this.clearUserCaches(user);
         log.debug("Created Information for User: {}", user);
         return user;
+    }
+
+    public User saveUser(User user) {
+        return userRepository.save(user);
     }
 
     /**
@@ -326,15 +344,57 @@ public class UserService {
         //profile.setGender();
         profile.setImageUrl(user.getImageUrl());
 
-        Player player = user.getDigiUser().getPlayer();
+        //        Player player = user.getDigiUser().getPlayer();
+        Player player = user.getPlayer();
 
         //profile.setXp();
         profile.setTix(player.getTix());
         profile.setComp(player.getComp());
         profile.setCredit(player.getGamePlayCredits());
-        //profile.setBadges();
+
+        Long playerId = player.getId();
+
+        Set<GameBadge> badges = gameBadgeRepository.findGameBadgeByPlayerId(playerId);
+
+        profile.setGameBadges(badges);
 
         return profile;
+    }
+
+    public LeaderBoard getLeaderBoardByUserId(Long id) {
+        //        Optional<User> optional = userRepository.findById(id);
+        List<User> all = userRepository.findAll();
+
+        //        if (!optional.isPresent()) {
+        //            return null;
+        //        }
+
+        //        User user = optional.get();
+
+        LeaderBoard leaderBoard = new LeaderBoard();
+        log.debug("User List Size: {}", all.size());
+        for (int i = 0; i < all.size(); i++) {
+            Set<LeaderBoardDTO> leaderBoardDTOS = new HashSet<>();
+            LeaderBoardDTO leaderBoardDTO = new LeaderBoardDTO();
+
+            log.debug("User Leader Board: {}", all.get(i));
+
+            leaderBoardDTO.setId(all.get(i).getId());
+            leaderBoardDTO.setFirstName(all.get(i).getFirstName());
+            leaderBoardDTO.setLastName(all.get(i).getLastName());
+
+            Long playerId = all.get(i).getPlayer().getId();
+
+            Set<GameScore> gameScores = gameScoreRepository.findGameScoreByPlayerId(playerId);
+
+            leaderBoardDTO.setGameScores(gameScores);
+
+            leaderBoardDTOS.add(leaderBoardDTO);
+
+            leaderBoard.setLeaderBoardDTOS(leaderBoardDTOS);
+        }
+
+        return leaderBoard;
     }
 
     @Transactional(readOnly = true)

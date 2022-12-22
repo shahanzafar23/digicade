@@ -1,7 +1,9 @@
 package com.digicade.service.impl;
 
 import com.digicade.domain.DigiUser;
+import com.digicade.domain.Player;
 import com.digicade.repository.DigiUserRepository;
+import com.digicade.repository.PlayerRepository;
 import com.digicade.service.DigiUserService;
 import com.digicade.service.dto.DigiUserDTO;
 import com.digicade.service.mapper.DigiUserMapper;
@@ -12,6 +14,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,9 @@ public class DigiUserServiceImpl implements DigiUserService {
     private final Logger log = LoggerFactory.getLogger(DigiUserServiceImpl.class);
 
     private final DigiUserRepository digiUserRepository;
+
+    @Autowired
+    private PlayerRepository playerRepository;
 
     private final DigiUserMapper digiUserMapper;
 
@@ -95,9 +101,8 @@ public class DigiUserServiceImpl implements DigiUserService {
     }
 
     @Override
-    public DigiUser findDigiUsers(Long id) {
+    public DigiUser findDigiUserById(Long id) {
         log.debug("Request to get DigiUser : {}", id);
-        log.debug("Response to get DigiUser : {}", digiUserRepository.findById(id));
         Optional<DigiUser> optional = digiUserRepository.findById(id);
         if (!optional.isPresent()) {
             return null;

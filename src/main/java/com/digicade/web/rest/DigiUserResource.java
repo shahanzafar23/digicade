@@ -182,13 +182,6 @@ public class DigiUserResource {
         return ResponseUtil.wrapOrNotFound(digiUserDTO);
     }
 
-    @GetMapping("/digiusers/{id}")
-    public ResponseEntity<DigiUser> getDigiUserById(@PathVariable Long id) {
-        log.debug("REST request to get DigiUser : {}", id);
-        DigiUser digiUser = digiUserService.findDigiUsers(id);
-        return new ResponseEntity<>(digiUser, HttpStatus.OK);
-    }
-
     /**
      * {@code DELETE  /digi-users/:id} : delete the "id" digiUser.
      *

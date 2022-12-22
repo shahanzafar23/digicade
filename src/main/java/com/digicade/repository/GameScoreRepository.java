@@ -1,6 +1,8 @@
 package com.digicade.repository;
 
 import com.digicade.domain.GameScore;
+import java.util.List;
+import java.util.Set;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
@@ -9,4 +11,6 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface GameScoreRepository extends JpaRepository<GameScore, Long> {}
+public interface GameScoreRepository extends JpaRepository<GameScore, Long> {
+    Set<GameScore> findGameScoreByPlayerId(Long id);
+}

@@ -57,7 +57,7 @@ public interface DigiUserService {
      */
     Optional<DigiUserDTO> findOne(Long id);
 
-    DigiUser findDigiUsers(Long id);
+    DigiUser findDigiUserById(Long id);
 
     /**
      * Delete the "id" digiUser.

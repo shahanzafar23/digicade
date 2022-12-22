@@ -1,5 +1,9 @@
 package com.digicade.service.dto;
 
+import com.digicade.domain.GameBadge;
+import java.util.HashSet;
+import java.util.Set;
+
 public class UserProfileDTO {
 
     private String firstName;
@@ -13,7 +17,7 @@ public class UserProfileDTO {
     private int tix;
     private int comp;
     private int credit;
-    private String badges;
+    private Set<GameBadge> gameBadges = new HashSet<>();
 
     public UserProfileDTO() {}
 
@@ -105,11 +109,11 @@ public class UserProfileDTO {
         this.credit = credit;
     }
 
-    public String getBadges() {
-        return badges;
+    public Set<GameBadge> getGameBadges() {
+        return gameBadges;
     }
 
-    public void setBadges(String badges) {
-        this.badges = badges;
+    public void setGameBadges(Set<GameBadge> gameBadges) {
+        this.gameBadges = gameBadges;
     }
 }
